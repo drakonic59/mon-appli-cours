@@ -1,2 +1,4 @@
 # mon-appli-cours
-cours intégration
+Cours intégration.
+
+Contient un projet maven java prêt au développement.
