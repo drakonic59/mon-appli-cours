@@ -28,15 +28,16 @@
       <artifactId>spotbugs</artifactId>
       <version>4.5.0</version>
     </dependency>
+	<dependency>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-pmd-plugin</artifactId>
+	  <version>3.15.0</version>
+	  <type>maven-plugin</type>
+	</dependency>
   </dependencies>
   
   <build>
 		<plugins>
-			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.13.0</version>
-            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
