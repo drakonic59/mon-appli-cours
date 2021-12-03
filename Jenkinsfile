@@ -4,15 +4,15 @@ pipeline {
     stages {
         stage('Package') {
             steps {
-            	sh 'mvn clean'
-                sh 'mvn package' 
+            	bat 'mvn clean'
+                bat 'mvn package' 
             }
         }
         stage('Analyse') {
             steps {
-            	sh 'mvn checkstyle:checkstyle'
-                sh 'mvn spotbugs:spotbugs'
-                sh 'mvn pmd:pmd' 
+            	bat 'mvn checkstyle:checkstyle'
+                bat 'mvn spotbugs:spotbugs'
+                bat 'mvn pmd:pmd' 
             }
         }
         stage('Publish') {
