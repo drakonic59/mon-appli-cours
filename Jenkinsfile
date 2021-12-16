@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Package') {
             steps {
+            	sh 'mvn clean'
                 sh 'mvn package' 
             }
         }
@@ -17,11 +18,6 @@ pipeline {
         stage('Publish') {
             steps {
                 archiveArtifacts '/target/*.jar'
-            }
-        }
-		stage('Maven Publish') {
-            steps {
-				nexusPublisher nexusInstanceId: 'NexuxLocalJenkins', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [], mavenCoordinate: [artifactId: 'mon-appli', groupId: 'fr.ilias.hattane', packaging: 'jar', version: '0.1.0']]]
             }
         }
         
