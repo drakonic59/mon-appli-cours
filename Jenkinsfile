@@ -20,6 +20,11 @@ pipeline {
                 archiveArtifacts '/target/*.jar'
             }
         }
+		stage('Push into Maven nexus') {
+            steps {
+                nexusPublisher nexusInstanceId: 'NexuxLocalJenkins', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [], mavenCoordinate: [artifactId: 'mon-appli', groupId: 'fr.ilias.hattane', packaging: 'jar', version: '0.1.0']]]
+            }
+        }
         
     }
     
