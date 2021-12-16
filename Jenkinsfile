@@ -4,25 +4,20 @@ pipeline {
     stages {
         stage('Package') {
             steps {
-            	sh 'mvn clean'
-                sh 'mvn package' 
+            	bat 'mvn clean'
+                bat 'mvn package' 
             }
         }
         stage('Analyse') {
             steps {
-            	sh 'mvn checkstyle:checkstyle'
-                sh 'mvn spotbugs:spotbugs'
-                sh 'mvn pmd:pmd' 
+            	bat 'mvn checkstyle:checkstyle'
+                bat 'mvn spotbugs:spotbugs'
+                bat 'mvn pmd:pmd' 
             }
         }
         stage('Publish') {
             steps {
                 archiveArtifacts '/target/*.jar'
-            }
-        }
-		stage('Maven Publish') {
-            steps {
-				nexusPublisher nexusInstanceId: 'NexuxLocalJenkins', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [], mavenCoordinate: [artifactId: 'mon-appli', groupId: 'fr.ilias.hattane', packaging: 'jar', version: '0.1.0']]]
             }
         }
         
@@ -37,7 +32,7 @@ pipeline {
             recordIssues enabledForFailure: true, tool: spotBugs()
             recordIssues enabledForFailure: true, tool: cpd(pattern: '**/target/cpd.xml')
             recordIssues enabledForFailure: true, tool: pmdParser(pattern: '**/target/pmd.xml')
-			
+            
         }
 
     }

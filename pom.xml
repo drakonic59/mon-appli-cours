@@ -22,7 +22,7 @@
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
-   </dependency>
+    </dependency>
 	<dependency>
 	  <groupId>org.apache.maven.plugins</groupId>
 	  <artifactId>maven-pmd-plugin</artifactId>
@@ -91,7 +91,7 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	
 	<reporting>
 		<plugins>
 				<plugin>
@@ -104,7 +104,7 @@
 					<artifactId>maven-pmd-plugin</artifactId>
 				</plugin>
 		</plugins>
-	</reporting>
+	</reporting>	
 	
 	<repositories>
 		<repository>
